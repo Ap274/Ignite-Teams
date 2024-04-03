@@ -7,12 +7,14 @@ import { ButtonIcon } from '@components/ButtonIcon'
 import { Input } from '@components/Input'
 import { Filter } from '@components/Filter'
 import { PlayerCard } from '@components/PlayerCard'
+import { ListEmpty } from '@components/ListEmpty'
+import { Button } from '@components/Button'
 
 import { Container, Form, HeaderList, NumberOfPlayer } from './styles'
 
 export function Players() { 
     const [team, setTeam] = useState('Time A');
-    const [players, setPlayers] = useState(['Rodrigo', 'Paulo', 'Carlos', 'Eminem']);
+    const [players, setPlayers] = useState(['Rodrigo', 'Paulo', 'Carlos', 'Biro', 'Ana', 'Mike', 'André', 'Marcos', 'Lukita']);
 
     return(
         <Container>
@@ -58,6 +60,14 @@ export function Players() {
                         onRemove={() => {}}
                     />
                 )}
+                ListEmptyComponent={() => <ListEmpty message="Não há jogadores nesse time"/>}
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={[{paddingBottom: 100}, players.length === 0 && { flex: 1 }]}
+            />
+
+            <Button 
+                title="Remover turma"
+                type='SECONDARY'
             />
 
         </Container>
