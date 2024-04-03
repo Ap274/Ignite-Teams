@@ -10,11 +10,11 @@ import { PlayerCard } from '@components/PlayerCard'
 import { ListEmpty } from '@components/ListEmpty'
 import { Button } from '@components/Button'
 
-import { Container, Form, HeaderList, NumberOfPlayer } from './styles'
+import { Container, Form, HeaderList, NumberOfPlayers } from './styles'
 
 export function Players() { 
     const [team, setTeam] = useState('Time A');
-    const [players, setPlayers] = useState(['Rodrigo', 'Paulo', 'Carlos', 'Biro', 'Ana', 'Mike', 'André', 'Marcos', 'Lukita']);
+    const [players, setPlayers] = useState([]);
 
     return(
         <Container>
@@ -46,9 +46,9 @@ export function Players() {
                     horizontal
                 />
 
-                <NumberOfPlayer>
+                <NumberOfPlayers>
                     {players.length}
-                </NumberOfPlayer>
+                </NumberOfPlayers>
             </HeaderList>
 
             <FlatList 
@@ -67,7 +67,7 @@ export function Players() {
 
             <Button 
                 title="Remover turma"
-                type='SECONDARY'
+                type="SECONDARY"
             />
 
         </Container>
