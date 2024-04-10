@@ -23,6 +23,7 @@ export function Players() {
 
     const route = useRoute();
     const { group } = route.params as RouteParams;
+    // const normalizedGroup = group.trim();
 
     return(
         <Container>

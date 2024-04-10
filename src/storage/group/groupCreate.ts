@@ -8,12 +8,14 @@ export async function groupCreate(newGroup: string) {
     try {
         const storedGroups = await groupsGetAll();
 
-        const groupAlreadyExists = storedGroups.includes(newGroup);
+        const normalizedGroup = newGroup.trim();
+
+        const groupAlreadyExists = storedGroups.map(group => group.trim()).includes(normalizedGroup);
         if(groupAlreadyExists) {
             throw new AppError('Já existe um grupo cadastrado com esse nome.');
         }
 
-        const storage = JSON.stringify([...storedGroups, newGroup]);
+        const storage = JSON.stringify([...storedGroups, normalizedGroup]);
         await AsyncStorage.setItem(GROUP_COLLECTION, storage);
     } catch (error) {
         throw error;
