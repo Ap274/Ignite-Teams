@@ -43,7 +43,7 @@ export function Players() {
 
             <HeaderList>
                 <FlatList 
-                    data={['Time A', 'Time B', 'Time C']}
+                    data={['Time A', 'Time B']}
                     keyExtractor={item => item}
                     renderItem={({item}) => (
                         <Filter 
